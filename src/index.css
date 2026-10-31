@@ -1,0 +1,226 @@
+:root {
+  color-scheme: light;
+  --background: #f5f7fb; /* Light gray/blue */
+  --surface: #ffffff;
+  --text: #172033;
+  --muted: #64748b;
+  --primary: #4f46e5; /* Indigo-600 */
+  --primary-hover: #4338ca;
+  --border: #dbe2ea;
+  --shadow: 0 18px 50px rgb(15 23 42 / 10%);
+}
+
+/* Reset items */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  /* Add a transition */
+  transition: color 180ms ease, background 180ms ease;
+}
+
+/* Dark mode */
+body.dark {
+  color-scheme: dark;
+  --background: #0f172a;
+  --surface: #182235;
+  --text: #e5e7eb;
+  --muted: #a8b3c5;
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --border: #334155;
+  --shadow: 0 18px 50px rgb(0 0 0 / 25%);
+}
+
+/* Header and footer layout */
+.site-header, footer {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+
+.logo {
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem;
+}
+
+.main-content {
+  width: min(100%, 44rem);
+  text-align: center;
+}
+
+.headerMain {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Style the main heading */
+h1 {
+  margin: 0.35rem 0 1rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.intro {
+  max-width: 36rem;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+button {
+  border-radius: 0.65rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.postButton {
+  padding: 0.8rem 1.25rem;
+  border: 0;
+  color: #fff;
+  background: var(--primary);
+}
+
+.postButton:active {
+  transform: translateY(1px); /* slight click effect */
+}
+
+.themeChangeButton {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Blog forms */
+.post-form {
+  width: min(100%, 44rem);
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.post-form > div:not(.post-actions) {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.post-form label {
+  font-weight: 700;
+}
+
+.post-form input, .post-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  color: var(--text);
+  background: var(--background);
+  font: inherit;
+}
+
+.post-form textarea {
+  resize: vertical;
+}
+
+/* Published posts */
+.posts-section {
+  width: min(100%, 44rem);
+  margin-top: 2rem;
+}
+
+.post-card {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.post-card h3 {
+  margin-top: 0;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.post-actions form {
+  margin: 0;
+}
+
+.post-actions a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.editButton, .deleteButton {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Accessibility focus rings */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+footer {
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 32rem) {
+  .site-header {
+    padding-block: 1rem;
+  }
+
+  .post-form {
+    padding: 1.5rem;
+  }
+}
+
+
+nav {
+  display: flex;
+  gap: 10px;
+}

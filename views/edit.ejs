@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit a post on Blogging For All." />
+    <title>Edit Post | Blogging For All</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main>
+        <!-- Edit a post area -->
+        <section class="main-content">
+            <h1>Edit Blog Post</h1>
+
+            <form class="post-form" action="/posts/<%= post.id %>/edit" method="POST">
+                <div>
+                    <label for="creator">Your name</label>
+                    <input type="text" id="creator" name="creator" value="<%= post.creator %>" required />
+                </div>
+                <div>
+                    <label for="title">Blog title</label>
+                    <input type="text" id="title" name="title" value="<%= post.title %>" required />
+                </div>
+                <div>
+                    <label for="content">Blog post</label>
+                    <textarea id="content" name="content" required rows="6"><%= post.content %></textarea>
+                </div>
+                <div class="post-actions">
+                    <button class="postButton" type="submit">Save Changes</button>
+                    <a href="/">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
